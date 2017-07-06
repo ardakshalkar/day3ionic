@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Welcome to Ionic!</h2>
+  <ion-card *ngFor="let image of newsfeed">
+    <img src="{{ image.url }}" width="200px" height="200px"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{ image.user?.username }}
+        </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content>
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

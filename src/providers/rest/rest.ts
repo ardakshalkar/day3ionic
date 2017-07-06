@@ -24,4 +24,8 @@ export class RestProvider {
     let body = res.json();
     return body || { };
   }
+
+  getNewsFeed(page: number | 0): Observable<string[]>{
+    return this.http.get("http://localhost/restmockup/newsfeed.php?page="+page).map(this.extractData);
+  }
 }
